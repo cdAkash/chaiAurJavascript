@@ -3,12 +3,14 @@ const accId = 123;
 let accEmail = "Akash@gmail.com"
 // let -> can be reassigned, you can change
 var accPass = "12345";
-accCity = "jaipur" // it is also possible but not recommended
+accCity = "jaigpur" // it is also possible but not recommended
 let accName; //undefined
 /*
 Prefer not to use var, because of issuse in block scope and functional scope
 
 */
+
+
 console.log(accId);
 console.log(accEmail);
 
