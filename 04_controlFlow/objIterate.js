@@ -21,7 +21,7 @@ arr.forEach((item)=>{
 })
 
 function printMe(item){
-    console.log(item);
+    // console.log(item);
 }
 // arr.forEach(printMe)
 
@@ -44,8 +44,29 @@ const myCod =[
     }
 ]
 myCod.forEach((item)=>{
-    console.log(item.lang);
-    console.log(item.langExt);
+    // console.log(item.lang);
+    // console.log(item.langExt);
 })
 
+
+// Filter Map and Reduce
+
+const myNums = [1,2,3,4,5,6,7,8,9,10]
+
+const storeNum = myNums.filter((num)=>{
+    if(num>4){
+        return num
+    }
+    
+})
+// console.log(storeNum);
+
+const newNum =[]
+myNums.forEach((num)=>{
+    if(num>4){
+        newNum.push(num)
+    }
+})
+
+console.log(newNum);
 

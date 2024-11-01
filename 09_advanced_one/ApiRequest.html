@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <p>
+        <!-- 0	UNSENT	Client has been created. open() not called yet.
+        1	OPENED	open() has been called.
+        2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+        3	LOADING	Downloading; responseText holds partial data.
+        4	DONE	The operation is complete. -->
+    </p>
+    <div class="card">
+
+    </div>
+    <div id="info">
+
+    </div>
+</body>
+<script>
+    const requesUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requesUrl);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){                                              
+            const data = JSON.parse(this.responseText)
+            console.log(data);
+            // console.log(data.followers)
+            // document.querySelector('#info').innerHTML = `Name: ${data.name}`;
+            // document.querySelector('#info').innerHTML = `Total Followers: ${data.followers}`;
+            const img = document.createElement('img');
+            img.src=data.avatar_url;
+            img.style.width='200px';
+            img.style.height='200px'
+            document.querySelector('.card').appendChild(img);
+
+            const h3 = document.createElement('h3');
+            const h4 = document.createElement('h4');
+            h4.innerHTML = `Total Followers: ${data.followers}`;
+            h3.innerHTML = `Name: ${data.name}`;
+            document.querySelector('#info').appendChild(h3);
+            document.querySelector('#info').appendChild(h4);
+
+        }
+
+    }
+    
+
+    xhr.send();
+</script>
+</html>
